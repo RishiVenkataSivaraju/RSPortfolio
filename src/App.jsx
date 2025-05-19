@@ -27,12 +27,16 @@ function App() {
             <h1 className="hi green-gradient">Hi</h1>
             <h1 className="name green-gradient">I'm Rishi Sivaraju</h1>
           </div>
-          <div className="heroimage">
+          <div className="hero-card">
+            <div className="card-glow"></div>
             <img
               src="https://res.cloudinary.com/drpgvnojt/image/upload/v1747627303/Non-Formal-Pic_xf2lje.png"
               alt="Rishi"
+              className="hero-img"
             />
           </div>
+
+
         </section>
 
         <section id="about" className="section dark-bg">
@@ -124,12 +128,64 @@ function App() {
           height: auto;
         }
 
-     .heroimage img {
+.hero-card {
+  position: relative;
   width: 30vw;
   height: 30vw;
+  border-radius: 20px;
+  overflow: visible; /* allow glow to overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  z-index: 10;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 20px;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3); /* optional shadow */
 }
+
+/* Glowing animated border */
+.card-glow {
+  position: absolute;
+  top: -5px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  border-radius: 25px;
+  background: linear-gradient(-45deg, #e81cff, #40c9ff, #fc00ff, #00dbde);
+  background-size: 400% 400%;
+  animation: glowAnim 10s ease infinite;
+  z-index: 1;
+  filter: blur(40px);
+  opacity: 0.9;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.hero-card:hover .card-glow {
+  filter: blur(50px);
+  opacity: 1;
+}
+
+@keyframes glowAnim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 
 
         .green-gradient {
