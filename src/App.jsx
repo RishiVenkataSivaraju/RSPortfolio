@@ -4,7 +4,6 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <h1 className="logo">
-        {/* <span className="logo-blue">R</span> */}
         <span className="logo">Rishi</span>
       </h1>
       <div className="nav-links">
@@ -22,9 +21,18 @@ function App() {
     <>
       <div className="container">
         <Navbar />
+
         <section className="hero">
-          <h1 className="hi">Hi</h1>
-          <h1 className="name">I'm Rishi Sivaraju</h1>
+          <div className="herocon">
+            <h1 className="hi green-gradient">Hi</h1>
+            <h1 className="name green-gradient">I'm Rishi Sivaraju</h1>
+          </div>
+          <div className="heroimage">
+            <img
+              src="https://res.cloudinary.com/drpgvnojt/image/upload/v1747627303/Non-Formal-Pic_xf2lje.png"
+              alt="Rishi"
+            />
+          </div>
         </section>
 
         <section id="about" className="section dark-bg">
@@ -55,17 +63,7 @@ function App() {
           background-color: #0f0f0f;
           color: #f5f5f5;
         }
- .logo {
-    background: linear-gradient(to right,rgb(25, 227, 109),rgb(39, 213, 8));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-.hero{
-margin-top: 20vw;
-margin-left:5vw;
-min-height: 60vh;}
-.hi{
-margin-bottom:-3vw;}
+
         .container {
           width: 100vw;
           overflow-x: hidden;
@@ -88,9 +86,10 @@ margin-bottom:-3vw;}
         .logo {
           font-size: 2rem;
           margin: 0;
+          background: linear-gradient(to right, rgb(25, 227, 109), rgb(39, 213, 8));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
-
-      
 
         .nav-links {
           display: flex;
@@ -103,9 +102,41 @@ margin-bottom:-3vw;}
           text-decoration: none;
         }
 
-     
+        .hero {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+          padding: 5vw;
+          column-gap: 5vw;
+          margin-top: 5vw;
+        }
 
-       
+        .herocon {
+          display: block;
+        }
+
+        .hi {
+          margin-bottom: -3vw;
+        }
+
+        .heroimage {
+          width: 100%;
+          height: auto;
+        }
+
+     .heroimage img {
+  width: 30vw;
+  height: 30vw;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+
+        .green-gradient {
+          background: linear-gradient(to right, rgb(10, 247, 108), rgb(42, 137, 7));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
 
         .gradient-text {
           background: linear-gradient(to right, #00FF85, #1E90FF);
@@ -133,12 +164,25 @@ margin-bottom:-3vw;}
         .section-title.green {
           color: #00FF85;
         }
+
+        @media (max-width: 768px) {
+          .hero {
+            grid-template-columns: 1fr;
+            text-align: center;
+          }
+
+          .heroimage img {
+            margin-top: 2rem;
+            max-width: 80vw;
+          }
+        }
       `}</style>
     </>
   );
 }
 
 export default App;
+
 
 
 
